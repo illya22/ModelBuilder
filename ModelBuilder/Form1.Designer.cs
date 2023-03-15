@@ -34,6 +34,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.FractalPictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.KochpictureBox = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
@@ -41,6 +43,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FractalPictureBox)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KochpictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,6 +106,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.numericUpDown3);
+            this.tabPage2.Controls.Add(this.numericUpDown2);
             this.tabPage2.Controls.Add(this.comboBox2);
             this.tabPage2.Controls.Add(this.KochpictureBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
@@ -111,6 +117,20 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(896, 12);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(150, 27);
+            this.numericUpDown3.TabIndex = 4;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(720, 12);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(150, 27);
+            this.numericUpDown2.TabIndex = 3;
             // 
             // comboBox2
             // 
@@ -128,7 +148,7 @@
             // 
             this.KochpictureBox.Location = new System.Drawing.Point(6, 44);
             this.KochpictureBox.Name = "KochpictureBox";
-            this.KochpictureBox.Size = new System.Drawing.Size(902, 846);
+            this.KochpictureBox.Size = new System.Drawing.Size(1130, 846);
             this.KochpictureBox.TabIndex = 1;
             this.KochpictureBox.TabStop = false;
             this.KochpictureBox.Click += new System.EventHandler(this.KochpictureBox_Click);
@@ -146,6 +166,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FractalPictureBox)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KochpictureBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -161,5 +183,7 @@
         private NumericUpDown numericUpDown1;
         private PictureBox KochpictureBox;
         private ComboBox comboBox2;
+        private NumericUpDown numericUpDown2;
+        private NumericUpDown numericUpDown3;
     }
 }

@@ -129,7 +129,7 @@ namespace ModelBuilder
                     u += Math.PI;
                 }
                 u -= 2 * Math.PI / 19; 
-                l /= Math.Sqrt(7);  
+                l /= Math.Sqrt((int)numericUpDown2.Value);  
                  
                 Paint(ref x, ref y, l, u, t - 1, 0);
                 Paint(ref x, ref y, l, u + Math.PI / 3, t - 1, 1);

@@ -86,9 +86,9 @@ namespace ModelBuilder
                 g.DrawLine(pen1, point3, point1);
 
 
-                Fractal(point1, point2, point3, 10);
-                Fractal(point2, point3, point1, 10);
-                Fractal(point3, point1, point2, 10);
+                Fractal(point1, point2, point3, (int)numericUpDown3.Value);
+                Fractal(point2, point3, point1, (int)numericUpDown3.Value);
+                Fractal(point3, point1, point2, (int)numericUpDown3.Value);
                 KochpictureBox.BackgroundImage = _fractal;
             }
             if(comboBox2.SelectedIndex == 1)
@@ -96,7 +96,7 @@ namespace ModelBuilder
                 _fractal = new Bitmap(FractalPictureBox.Width, FractalPictureBox.Height);
                 _graph = Graphics.FromImage(_fractal);
                 pen = new Pen(Color.Black);
-                Draw(150, 350, 300, 0, 3, 0);
+                Draw(150, 350, 300, 0, (int)numericUpDown3.Value, 0);
                 KochpictureBox.BackgroundImage = _fractal;
             }
         }

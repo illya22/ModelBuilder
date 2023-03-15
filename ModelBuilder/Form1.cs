@@ -14,7 +14,10 @@ namespace ModelBuilder
         private int _height;
         private Bitmap _fractal;
         private Graphics _graph;
-        public Pen p; 
+        public Pen pen;
+        static Pen pen1;
+        static Pen pen2;
+        static Graphics g;
         
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace ModelBuilder
                 _fractal = new Bitmap(FractalPictureBox.Width, FractalPictureBox.Height); 
                 _graph = Graphics.FromImage(_fractal);  
                 _graph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias; 
-                p = new Pen(Color.Black);    
+                pen = new Pen(Color.Black);    
 
                 
                 DrawTree(FractalPictureBox.Width/2, FractalPictureBox.Height-100, 300, 180);
@@ -56,6 +59,46 @@ namespace ModelBuilder
                 FractalPictureBox.BackgroundImage = _fractal;
             }
         }
-        
+
+        private void KochpictureBox_Click(object sender, EventArgs e)
+        {
+             
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox2.SelectedIndex == 0)
+            {
+                _fractal = new Bitmap(KochpictureBox.Height, KochpictureBox.Width);
+
+                g = Graphics.FromImage(_fractal);
+                pen1 = new Pen(Color.Green, 1);
+                pen2 = new Pen(Color.Blue, 1);
+                            
+                PointF point1 = new PointF(200, 200);
+                PointF point2 = new PointF(500, 200);
+                PointF point3 = new PointF(350, 400);
+
+
+
+                g.DrawLine(pen1, point1, point2);
+                g.DrawLine(pen1, point2, point3);
+                g.DrawLine(pen1, point3, point1);
+
+
+                Fractal(point1, point2, point3, 10);
+                Fractal(point2, point3, point1, 10);
+                Fractal(point3, point1, point2, 10);
+                KochpictureBox.BackgroundImage = _fractal;
+            }
+            if(comboBox2.SelectedIndex == 1)
+            {
+                _fractal = new Bitmap(FractalPictureBox.Width, FractalPictureBox.Height);
+                _graph = Graphics.FromImage(_fractal);
+                pen = new Pen(Color.Black);
+                Draw(150, 350, 300, 0, 3, 0);
+                KochpictureBox.BackgroundImage = _fractal;
+            }
+        }
     }
 }

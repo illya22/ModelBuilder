@@ -8,6 +8,7 @@ namespace ModelBuilder
             InitializeComponent();
             _width = FractalPictureBox.Width;
             _height = FractalPictureBox.Height;
+
         }
         public int Level; 
         private int _width;
@@ -60,10 +61,7 @@ namespace ModelBuilder
             }
         }
 
-        private void KochpictureBox_Click(object sender, EventArgs e)
-        {
-             
-        }
+       
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -100,5 +98,68 @@ namespace ModelBuilder
                 KochpictureBox.BackgroundImage = _fractal;
             }
         }
+
+       
+
+       
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            zoom -= zoomSpeed / zoom;
+            Draw_Mandelbrot();
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            Draw_Mandelbrot();
+            timer1.Stop();
+
+        }
+
+        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Q)
+            {
+                res -= 1;
+            }
+            if (e.KeyCode == Keys.E)
+            {
+                res += 1;
+            }
+            if (e.KeyCode == Keys.W)
+            {
+                wy -= speed * (5 - Math.Abs(zoom));
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                wy += speed * (5 - Math.Abs(zoom));
+            }
+
+            if (e.KeyCode == Keys.A)
+            {
+                wx -= speed * (5 - Math.Abs(zoom));
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                wx += speed * (5 - Math.Abs(zoom));
+            }
+
+
+            if (e.KeyCode == Keys.Space)
+            {
+                timer1.Stop();
+                Draw_Mandelbrot();
+            }
+            if (e.KeyCode == Keys.Z)
+            {
+                timer1.Start();
+                Draw_Mandelbrot();
+            }
+            
+        }
+
+       
     }
 }

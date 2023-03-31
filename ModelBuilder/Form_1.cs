@@ -148,5 +148,78 @@ namespace ModelBuilder
             x += l * Math.Cos(u);
             y -= l * Math.Sin(u);
         }
+        //Mandelbrot
+        public double wx = 0;
+        public double wy = 0;
+        public double speed = 2f;
+        public double zoom = 2f;
+        public double zoomSpeed = 0.004d;
+        public int res = 5;
+        public void Draw_Mandelbrot()
+        {
+            if (res <= 0)
+            {
+                res = 1;
+            }
+
+            Bitmap frame = new Bitmap(Width / res, Height / res);
+            for (int x = 0; x < Width / res; x++)
+            {
+                for (int y = 0; y < Height / res; y++)
+                {
+                    double a = (double)((x + (wx / res / zoom)) - ((Width / 2d) / res)) / (double)(Width / zoom / res / 1.777f);
+                    double b = (double)((y + (wy / res / zoom)) - ((Height / 2d) / res)) / (double)(Height / zoom / res);
+
+                    Mandelbrot_Helper c = new Mandelbrot_Helper(a, b);
+                    Mandelbrot_Helper z = new Mandelbrot_Helper(0, 0);
+
+
+                    int it = 0;
+
+                    do
+                    {
+                        it++;
+                        z.Sqr();
+                        z.Add(c);
+                        if (z.Calc() > 2.0d)
+                        {
+                            break;
+                        }
+                    } while (it < 100);
+
+
+                    frame.SetPixel(x, y, Color.FromArgb((byte)(it * 2.55f), (byte)(it * 2.55f), (byte)(it * 2.55f)));
+                }
+                MandelbrotpictureBox.Image = frame;
+                MandelbrotpictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+        public class Mandelbrot_Helper
+        {
+            public double a;
+            public double b;
+
+            public Mandelbrot_Helper(double a, double b)
+            {
+                this.a = a;
+                this.b = b;
+            }
+
+            public void Sqr()
+            {
+                double temp = (a * a) - (b * b);
+                b = 2.0d * a * b;
+                a = temp;
+            }
+            public double Calc()
+            {
+                return Math.Sqrt((a * a) + (b * b));
+            }
+            public void Add(Mandelbrot_Helper m)
+            {
+                a += m.a;
+                b += m.b;
+            }
+        }
     }
 }

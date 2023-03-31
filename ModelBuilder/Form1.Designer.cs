@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -38,6 +39,9 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.KochpictureBox = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.MandelbrotpictureBox = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -46,17 +50,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KochpictureBox)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MandelbrotpictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1258, 929);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
             // 
             // tabPage1
             // 
@@ -146,12 +154,36 @@
             // 
             // KochpictureBox
             // 
-            this.KochpictureBox.Location = new System.Drawing.Point(6, 44);
+            this.KochpictureBox.Location = new System.Drawing.Point(6, 75);
             this.KochpictureBox.Name = "KochpictureBox";
-            this.KochpictureBox.Size = new System.Drawing.Size(1130, 846);
-            this.KochpictureBox.TabIndex = 1;
+            this.KochpictureBox.Size = new System.Drawing.Size(831, 726);
+            this.KochpictureBox.TabIndex = 5;
             this.KochpictureBox.TabStop = false;
-            this.KochpictureBox.Click += new System.EventHandler(this.KochpictureBox_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.MandelbrotpictureBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1250, 896);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // MandelbrotpictureBox
+            // 
+            this.MandelbrotpictureBox.Location = new System.Drawing.Point(6, 20);
+            this.MandelbrotpictureBox.Name = "MandelbrotpictureBox";
+            this.MandelbrotpictureBox.Size = new System.Drawing.Size(1227, 870);
+            this.MandelbrotpictureBox.TabIndex = 0;
+            this.MandelbrotpictureBox.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -161,6 +193,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -169,6 +202,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KochpictureBox)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MandelbrotpictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,5 +220,8 @@
         private ComboBox comboBox2;
         private NumericUpDown numericUpDown2;
         private NumericUpDown numericUpDown3;
+        private TabPage tabPage3;
+        private PictureBox MandelbrotpictureBox;
+        private System.Windows.Forms.Timer timer1;
     }
 }

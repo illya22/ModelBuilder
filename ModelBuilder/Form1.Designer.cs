@@ -41,6 +41,13 @@
             this.KochpictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.MandelbrotpictureBox = new System.Windows.Forms.PictureBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.ImageBox = new System.Windows.Forms.PictureBox();
+            this.LoadImagebotton = new System.Windows.Forms.Button();
+            this.textBoxAnswer = new System.Windows.Forms.TextBox();
+            this.LSMBoundary = new System.Windows.Forms.Button();
+            this.LSMbutton = new System.Windows.Forms.Button();
+            this.LSMnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -52,6 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.KochpictureBox)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MandelbrotpictureBox)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LSMnumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -59,6 +69,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -179,6 +190,75 @@
             this.MandelbrotpictureBox.TabIndex = 0;
             this.MandelbrotpictureBox.TabStop = false;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.ImageBox);
+            this.tabPage4.Controls.Add(this.LoadImagebotton);
+            this.tabPage4.Controls.Add(this.textBoxAnswer);
+            this.tabPage4.Controls.Add(this.LSMBoundary);
+            this.tabPage4.Controls.Add(this.LSMbutton);
+            this.tabPage4.Controls.Add(this.LSMnumericUpDown);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1250, 896);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // ImageBox
+            // 
+            this.ImageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ImageBox.Location = new System.Drawing.Point(256, 17);
+            this.ImageBox.Name = "ImageBox";
+            this.ImageBox.Size = new System.Drawing.Size(975, 841);
+            this.ImageBox.TabIndex = 5;
+            this.ImageBox.TabStop = false;
+            // 
+            // LoadImagebotton
+            // 
+            this.LoadImagebotton.Location = new System.Drawing.Point(86, 6);
+            this.LoadImagebotton.Name = "LoadImagebotton";
+            this.LoadImagebotton.Size = new System.Drawing.Size(140, 29);
+            this.LoadImagebotton.TabIndex = 4;
+            this.LoadImagebotton.Text = "Load Image";
+            this.LoadImagebotton.UseVisualStyleBackColor = true;
+            this.LoadImagebotton.Click += new System.EventHandler(this.LoadImagebotton_Click);
+            // 
+            // textBoxAnswer
+            // 
+            this.textBoxAnswer.Location = new System.Drawing.Point(46, 157);
+            this.textBoxAnswer.Name = "textBoxAnswer";
+            this.textBoxAnswer.Size = new System.Drawing.Size(180, 27);
+            this.textBoxAnswer.TabIndex = 3;
+            // 
+            // LSMBoundary
+            // 
+            this.LSMBoundary.Location = new System.Drawing.Point(59, 87);
+            this.LSMBoundary.Name = "LSMBoundary";
+            this.LSMBoundary.Size = new System.Drawing.Size(167, 29);
+            this.LSMBoundary.TabIndex = 2;
+            this.LSMBoundary.Text = "Set Boundary";
+            this.LSMBoundary.UseVisualStyleBackColor = true;
+            this.LSMBoundary.Click += new System.EventHandler(this.LSMBoundary_Click);
+            // 
+            // LSMbutton
+            // 
+            this.LSMbutton.Location = new System.Drawing.Point(119, 122);
+            this.LSMbutton.Name = "LSMbutton";
+            this.LSMbutton.Size = new System.Drawing.Size(94, 29);
+            this.LSMbutton.TabIndex = 1;
+            this.LSMbutton.Text = "LSM";
+            this.LSMbutton.UseVisualStyleBackColor = true;
+            this.LSMbutton.Click += new System.EventHandler(this.LSMbutton_Click);
+            // 
+            // LSMnumericUpDown
+            // 
+            this.LSMnumericUpDown.Location = new System.Drawing.Point(76, 54);
+            this.LSMnumericUpDown.Name = "LSMnumericUpDown";
+            this.LSMnumericUpDown.Size = new System.Drawing.Size(150, 27);
+            this.LSMnumericUpDown.TabIndex = 0;
+            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -204,6 +284,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.KochpictureBox)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MandelbrotpictureBox)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LSMnumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,5 +307,12 @@
         private TabPage tabPage3;
         private PictureBox MandelbrotpictureBox;
         private System.Windows.Forms.Timer timer1;
+        private TabPage tabPage4;
+        private NumericUpDown LSMnumericUpDown;
+        private Button LSMbutton;
+        private Button LoadImagebotton;
+        private TextBox textBoxAnswer;
+        private Button LSMBoundary;
+        private PictureBox ImageBox;
     }
 }

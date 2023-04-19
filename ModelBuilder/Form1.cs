@@ -2,12 +2,16 @@ namespace ModelBuilder
 {
     public partial class Form1 : Form
     {
-         
+        private string imageFilepath;
+        private FractalDimension fdc;
         public Form1()
         {
             InitializeComponent();
             _width = FractalPictureBox.Width;
             _height = FractalPictureBox.Height;
+            fdc = new FractalDimension();
+
+            imageFilepath = string.Empty;
 
         }
         public int Level; 
@@ -160,6 +164,62 @@ namespace ModelBuilder
             
         }
 
-       
+        private void LoadImagebotton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG";
+
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                     
+                    imageFilepath = openFileDialog.FileName;
+                    ImageBox.BackgroundImage = Image.FromFile(imageFilepath);
+
+                    //CellSizeInput.Enabled = true;
+                    //CellSizeInput.Maximum = Math.Min(ImageBox.BackgroundImage.Width, ImageBox.BackgroundImage.Height) / 16;
+                     
+                }
+            }
+        }
+
+        private void LSMbutton_Click(object sender, EventArgs e)
+        {
+            fdc.BlackBoundary = (int)LSMnumericUpDown.Value;
+            textBoxAnswer.Text = fdc.CalculateCapacitiveDimension(imageFilepath).ToString();
+        }
+
+        private void LSMBoundary_Click(object sender, EventArgs e)
+        {
+            SetBlackBoundaryToImageBox();
+        }
+        private void SetBlackBoundaryToImageBox()
+        {
+            int blackBoundary = (int)LSMnumericUpDown.Value;
+            Bitmap image = new Bitmap(Image.FromFile(imageFilepath));
+            Bitmap newImage = new Bitmap(image.Width, image.Height);
+
+            for (int x = 0; x < newImage.Width; x++)
+            {
+                for (int y = 0; y < newImage.Height; y++)
+                {
+                    Color pixel = image.GetPixel(x, y);
+
+                    if (pixel.R <= blackBoundary && pixel.G <= blackBoundary && pixel.B <= blackBoundary)
+                    {
+                        newImage.SetPixel(x, y, Color.Black);
+                    }
+                    else
+                    {
+                        newImage.SetPixel(x, y, Color.White);
+                    }
+                }
+            }
+
+            ImageBox.BackgroundImage = newImage;
+        }
     }
 }
